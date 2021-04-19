@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
     <title>
         <%= title %>
     </title>
@@ -23,6 +24,11 @@
                 <%}%>
         </ul>
     </div>
+    <form action="/create-todo" method="post">
+        <input type="text" name="topic" placeholder="Add todo..." required>
+        <button type="submit">Add Todo</button>
+    </form>
+    <script src="/js/home.js"></script>
 </body>
 
 </html>

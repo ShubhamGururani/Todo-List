@@ -5,6 +5,11 @@ const port = 8000;
 // run the express function
 const app = express();
 
+// used to parse json and urls
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(express.static('assets'));
+
 // setting up view engine
 app.set('view engine', 'ejs');
 // giving it the folder in which to look for views
@@ -25,6 +30,12 @@ app.get('/', function(req, res) {
         title: "Todo",
         todo_list: todoList
     });
+});
+
+// receiving data from the form
+app.post('/create-todo', function(req, res) {
+    todoList.push(req.body);
+    return res.redirect('back');
 });
 
 // make the app listen on the given port number
