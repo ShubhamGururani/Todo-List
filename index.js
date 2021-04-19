@@ -2,6 +2,10 @@
 const express = require('express');
 // give the port number 
 const port = 8000;
+
+// require mongoose
+const db = require('./config/mongoose');
+
 // run the express function
 const app = express();
 
@@ -35,6 +39,19 @@ app.get('/', function(req, res) {
 // receiving data from the form
 app.post('/create-todo', function(req, res) {
     todoList.push(req.body);
+    return res.redirect('back');
+});
+// in case of delete button is pressed
+app.get('/delete-todo', function(req, res) {
+    // receiving parameters from url
+    console.log(req.query);
+    let topic = req.query.topic;
+    // find location in list
+    let todoIndex = todoList.findIndex(todo => todo.topic == topic);
+    if (todoIndex != -1) {
+        todoList.splice(todoIndex, 1);
+    }
+    // remove and redirect back
     return res.redirect('back');
 });
 

@@ -17,9 +17,15 @@
         <ul>
             <% for (let i of todo_list){ %>
                 <li>
-                    <p>
-                        <%= i.topic%>
-                    </p>
+                    <div class="details">
+                        <p>
+                            <%= i.topic%>
+                        </p>
+                    </div>
+                    <div class="delete-button">
+                        <a href="/delete-todo/?topic=<%=i.topic%>">x</a>
+                    </div>
+
                 </li>
                 <%}%>
         </ul>
