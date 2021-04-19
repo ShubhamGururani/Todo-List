@@ -5,6 +5,7 @@ const port = 8000;
 
 // require mongoose
 const db = require('./config/mongoose');
+const Todo = require('./models/todo');
 
 // run the express function
 const app = express();
@@ -19,40 +20,52 @@ app.set('view engine', 'ejs');
 // giving it the folder in which to look for views
 app.set('views', './views');
 
-// temporary storage( remove it later on)
-var todoList = [{
-    topic: "Buy Cheese",
-}, {
-    topic: "Buy Toppings"
-}, {
-    topic: "Make Pizza"
-}]
 
 // define routes
 app.get('/', function(req, res) {
-    return res.render('home', {
-        title: "Todo",
-        todo_list: todoList
+    Todo.find({}, function(err, todoList) {
+        if (err) {
+            console.log('Error in fetching todos from db');
+            return;
+        }
+        return res.render('home', {
+            title: "Todo",
+            todo_list: todoList
+        });
     });
+
 });
 
 // receiving data from the form
 app.post('/create-todo', function(req, res) {
-    todoList.push(req.body);
-    return res.redirect('back');
+    Todo.create({
+        topic: req.body.topic
+    }, function(err, newTodo) {
+        if (err) {
+            console.log('Error in creating new todo');
+            return;
+        }
+        console.log('*********** new Todo created: ', newTodo);
+        return res.redirect('back');
+    });
 });
+
 // in case of delete button is pressed
 app.get('/delete-todo', function(req, res) {
-    // receiving parameters from url
-    console.log(req.query);
-    let topic = req.query.topic;
-    // find location in list
-    let todoIndex = todoList.findIndex(todo => todo.topic == topic);
-    if (todoIndex != -1) {
-        todoList.splice(todoIndex, 1);
-    }
-    // remove and redirect back
-    return res.redirect('back');
+    //get the id from the url
+
+    let id = req.query.id;
+
+    // find todo in the database using id and delete
+    Todo.findByIdAndDelete(id, function(err) {
+        if (err) {
+            console.log('Error in deleting an object form database');
+            return;
+        }
+        //redirect back
+        return res.redirect('back');
+    });
+
 });
 
 // make the app listen on the given port number
