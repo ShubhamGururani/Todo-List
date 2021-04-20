@@ -1,4 +1,11 @@
 console.log('script loaded');
+$(function() {
+    $('#example1').datepicker({
+        autoclose: true,
+        format: "dd/mm/yyyy"
+    });
+});
+
 var tabcontent = document.getElementsByClassName("tabcontent");
 
 function closeTabTodo() {

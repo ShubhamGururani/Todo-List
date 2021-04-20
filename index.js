@@ -38,9 +38,7 @@ app.get('/', function(req, res) {
 
 // receiving data from the form
 app.post('/create-todo', function(req, res) {
-    Todo.create({
-        topic: req.body.topic
-    }, function(err, newTodo) {
+    Todo.create(req.body, function(err, newTodo) {
         if (err) {
             console.log('Error in creating new todo');
             return;

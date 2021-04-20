@@ -2,11 +2,51 @@ body {
     margin: 0;
 }
 
-#main-wrapper {
-    width: 70%;
+.tab {
+    width: 50%;
+    margin: auto;
     display: flex;
+    justify-content: center;
+}
+
+#main-wrapper {
+    width: 50%;
     background-color: orange;
     margin: auto;
+    overflow: hidden;
+}
+
+#main-wrapper form {
+    width: 90%;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.details {
+    float: left;
+}
+
+.details p {
+    display: inline-block;
+}
+
+.delete-button {
+    float: left;
+}
+
+.delete-button a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
 }
 
 #grocery {

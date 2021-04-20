@@ -4,6 +4,12 @@ const todoSchema = new mongoose.Schema({
     topic: {
         type: String,
         required: true
+    },
+    category: {
+        type: String,
+    },
+    date: {
+        type: String
     }
 });
 
