@@ -67,6 +67,9 @@ app.get('/delete-todo', function(req, res) {
     });
 
 });
+app.use(function(req, res) {
+    res.status(404).render('404');
+});
 
 // make the app listen on the given port number
 app.listen(port, function(err) {

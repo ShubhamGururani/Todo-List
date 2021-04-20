@@ -12,28 +12,43 @@
 </head>
 
 <body>
-    <h1>Todo List</h1>
-    <div>
-        <ul>
-            <% for (let i of todo_list){ %>
-                <li>
-                    <div class="details">
-                        <p>
-                            <%= i.topic%>
-                        </p>
-                    </div>
-                    <div class="delete-button">
-                        <a href="/delete-todo/?id=<%=i._id%>">x</a>
-                    </div>
 
-                </li>
-                <%}%>
-        </ul>
+
+
+    <div class="tab">
+        <button class="tablinks" onclick="closeTabGrocery()"><h1>Todo List</h1></button>
+        <button class="tablinks" onclick="closeTabTodo()">Grocery</button>
     </div>
-    <form action="/create-todo" method="post">
-        <input type="text" name="topic" placeholder="Add todo..." required>
-        <button type="submit">Add Todo</button>
-    </form>
+
+    <div id="todo" class="tabcontent">
+        <div id="main-wrapper">
+            <form action="/create-todo" method="post">
+                <input type="text" name="topic" placeholder="Add todo..." required>
+                <button type="submit ">Add Todo</button>
+            </form>
+            <ul>
+                <% for (let i of todo_list){ %>
+                    <li>
+                        <div class="details ">
+                            <p>
+                                <%= i.topic%>
+                            </p>
+                        </div>
+                        <div class="delete-button ">
+                            <a href="/delete-todo/?id=<%=i._id%>">x</a>
+                        </div>
+
+                    </li>
+                    <%}%>
+            </ul>
+
+        </div>
+    </div>
+
+    <div id="grocery" class="tabcontent">
+        <p>grocery list here</p>
+    </div>
+
     <script src="/js/home.js"></script>
 </body>
 

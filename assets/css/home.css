@@ -1,3 +1,14 @@
-h1 {
-    text-align: center;
+body {
+    margin: 0;
+}
+
+#main-wrapper {
+    width: 70%;
+    display: flex;
+    background-color: orange;
+    margin: auto;
+}
+
+#grocery {
+    display: none;
 }
