@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background: linear-gradient(90deg, rgba(133, 220, 176, 0.5), rgba(133, 220, 176, 1));
 }
 
 .tab {
@@ -11,7 +12,8 @@ body {
 
 #main-wrapper {
     width: 50%;
-    background-color: orange;
+    background: linear-gradient(-135deg, rgba(65, 179, 163, 0.3), rgba(65, 179, 163, 0.5));
+    border-radius: 20px;
     margin: auto;
     overflow: hidden;
 }
@@ -39,14 +41,10 @@ ul li {
     display: inline-block;
 }
 
-.delete-button {
+#delete-button {
     float: left;
-}
-
-.delete-button a {
-    color: white;
-    text-decoration: none;
-    display: inline-block;
+    margin-top: -9%;
+    margin-left: 78%;
 }
 
 .strikethrough:checked+span p {
@@ -55,4 +53,66 @@ ul li {
 
 #grocery {
     display: none;
+}
+
+#delete-form .checkbox span p:first-child {
+    font-size: large;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+#fixed-height {
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#fixed-height::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+#fixed-height {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.cat {
+    text-align: center;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.home {
+    background-color: #e27d60;
+}
+
+.school {
+    background-color: #c38d9e;
+}
+
+.work {
+    background-color: lightcoral;
+}
+
+.personal {
+    background-color: blueviolet;
+}
+
+.one-row {
+    margin-top: -3.5%;
+    margin-left: 4.4%;
+}
+
+.btn {
+    box-shadow: 0px 9px rgba(32, 178, 170, 0.5);
+}
+
+.btn:active {
+    box-shadow: 0 5px rgba(32, 178, 170, 1);
+    transform: translateY(4px);
 }
