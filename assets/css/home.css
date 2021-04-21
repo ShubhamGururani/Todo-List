@@ -49,6 +49,7 @@ ul li {
 
 .strikethrough:checked+span p {
     text-decoration: line-through;
+    color: rgb(0, 0, 0, 0.5);
 }
 
 #grocery {

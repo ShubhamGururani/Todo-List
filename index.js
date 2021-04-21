@@ -71,21 +71,7 @@ app.post('/delete-todo', function(req, res) {
     return res.redirect('back');
 
 });
-app.get('/delete-item', function(req, res) {
-    //get the id from the url
-    let id = req.query.id;
 
-    // find todo in the database using id and delete
-    Todo.findByIdAndDelete(id, function(err) {
-        if (err) {
-            console.log('Error in deleting an object form database');
-            return;
-        }
-        //redirect back
-        return res.redirect('back');
-    });
-
-});
 app.use(function(req, res) {
     res.status(404).render('404');
 });
