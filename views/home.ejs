@@ -10,11 +10,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    <!-- font awesome for icons -->
     <script src="https://kit.fontawesome.com/f6ad0f96e7.js" crossorigin="anonymous"></script>
 
     <!-- css to overwrite anything -->
     <link rel="stylesheet" href="/css/home.css">
     <title>
+        <!-- title sent by index.js -->
         <%= title %>
     </title>
 </head>
@@ -27,6 +29,7 @@
 
 
     <div id="main-wrapper">
+        <!-- create todo form sends a post request with given data -->
         <form action="/create-todo" method="post">
             <br>
             <div class="col-12">
@@ -46,20 +49,24 @@
                 </div>
                 <div class="col-6">
                     <p>DATE</p>
+                    <!-- date input -->
                     <input name="date" class="form-control" type="text" placeholder="Click to add deadline" id="example1">
-
                 </div>
 
             </div>
             <br>
+            <!-- submits the form with relevant data -->
             <button class="btn btn-primary" type="submit ">Add Todo</button>
         </form>
         <br>
         <button class="btn btn-danger" type="submit" id="delete-button" form="delete-form">Delete Todo</button>
+        <!-- delete button used to send data of the below form -->
+        <!-- this is made a form so that multiple todos can be sent to the server to be deleted -->
         <form action="/delete-todo" method="post" name="delete-form" id="delete-form">
             <div id="fixed-height">
                 <br>
                 <ul>
+                    <!-- populates the list with data from the database -->
                     <% for (let i of todo_list){ %>
                         <li class="row">
                             <div class="details ">
@@ -97,7 +104,7 @@
             </div>
         </form>
     </div>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <!-- script for this page -->
 
     <script src="/js/home.js"></script>
 </body>

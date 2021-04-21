@@ -1,4 +1,5 @@
 console.log('script loaded');
+// initializes the datepicker
 $(function() {
     $('#example1').datepicker({
         autoclose: true,

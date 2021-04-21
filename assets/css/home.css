@@ -1,9 +1,11 @@
 body {
     margin: 0;
+    /* remove default margin and give a linear gradient */
     background: linear-gradient(90deg, rgba(133, 220, 176, 0.5), rgba(133, 220, 176, 1));
 }
 
 .tab {
+    /* this will be used in future versions when grocery list is implemented */
     width: 50%;
     margin: auto;
     display: flex;
@@ -11,6 +13,7 @@ body {
 }
 
 #main-wrapper {
+    /* the main wrapper for the todo list */
     width: 50%;
     background: linear-gradient(-135deg, rgba(65, 179, 163, 0.3), rgba(65, 179, 163, 0.5));
     border-radius: 20px;
@@ -25,6 +28,7 @@ body {
 
 ul {
     list-style: none;
+    /* to remove bullets */
 }
 
 ul li {
@@ -50,10 +54,12 @@ ul li {
 .strikethrough:checked+span p {
     text-decoration: line-through;
     color: rgb(0, 0, 0, 0.5);
+    /* this is used to strikethrough the particular todo */
 }
 
 #grocery {
     display: none;
+    /* not used now */
 }
 
 #delete-form .checkbox span p:first-child {
