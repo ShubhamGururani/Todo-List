@@ -38,7 +38,13 @@ app.get('/', function(req, res) {
 
 // receiving data from the form
 app.post('/create-todo', function(req, res) {
-    Todo.create(req.body, function(err, newTodo) {
+
+    Todo.create({
+        topic: req.body.topic,
+        date: req.body.date,
+        category: req.body.category,
+        completed: true
+    }, function(err, newTodo) {
         if (err) {
             console.log('Error in creating new todo');
             return;
@@ -51,7 +57,6 @@ app.post('/create-todo', function(req, res) {
 // in case of delete button is pressed
 app.get('/delete-todo', function(req, res) {
     //get the id from the url
-
     let id = req.query.id;
 
     // find todo in the database using id and delete

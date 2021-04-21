@@ -58,19 +58,27 @@
                 <% for (let i of todo_list){ %>
                     <li class="col-11">
                         <div class="details ">
-                            <input type="checkbox" name="completed" id="">
-                            <p>
-                                <%= i.topic%>
-                            </p>
-                            <p>
-                                <%=i.category%>
-                            </p>
-                            <p>
-                                <%=i.date%>
-                                    <% if(i.date==''){%>
-                                        No deadline
-                                        <%}%>
-                            </p>
+                            <%let checked = i.completed? "checked" : "" %>
+                                <div class="checkbox">
+                                    <label>
+                                   <input type="checkbox" name="completed" class="remove strikethrough" <%=checked%>>
+                                   <span>
+                                       <p>
+                                    <%= i.topic%>
+                                </p>
+                                <p>
+                                    <%=i.category%>
+                                </p>
+                                <p>
+                                    <%=i.date%>
+                                        <% if(i.date==''){%>
+                                            No deadline
+                                            <%}%>
+                                </p></span>
+                                </label>
+                                </div>
+
+
                         </div>
                         <div class="delete-button">
                             <a href="/delete-todo/?id=<%=i._id%>">x</a>

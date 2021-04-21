@@ -17,3 +17,11 @@ function closeTabGrocery() {
     tabcontent[1].style.display = "none";
     tabcontent[0].style.display = "block";
 }
+$(function() {
+    var checkboxes = document.getElementsByClassName('remove');
+
+    for (let i of checkboxes) {
+        if (i.value == 'on')
+            console.log('checked');
+    }
+});

@@ -10,6 +10,9 @@ const todoSchema = new mongoose.Schema({
     },
     date: {
         type: String
+    },
+    completed: {
+        type: Boolean
     }
 });
 

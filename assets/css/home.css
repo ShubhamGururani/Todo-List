@@ -49,6 +49,10 @@ ul li {
     display: inline-block;
 }
 
+.strikethrough:checked+span p {
+    text-decoration: line-through;
+}
+
 #grocery {
     display: none;
 }
