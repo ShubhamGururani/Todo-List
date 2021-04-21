@@ -54,14 +54,17 @@
                 <button class="btn btn-primary" type="submit ">Add Todo</button>
             </form>
             <br>
-            <ul>
-                <% for (let i of todo_list){ %>
-                    <li class="col-11">
-                        <div class="details ">
-                            <%let checked = i.completed? "checked" : "" %>
-                                <div class="checkbox">
-                                    <label>
-                                   <input type="checkbox" name="completed" class="remove strikethrough" <%=checked%>>
+            <button type="submit" id="delete" form="delete-form">x</button>
+            <form action="/delete-todo" method="post" name="delete-form" id="delete-form">
+                <div>
+                    <ul>
+                        <% for (let i of todo_list){ %>
+                            <li class="col-11">
+                                <div class="details ">
+                                    <%let checked = i.completed? "checked" : "" %>
+                                        <div class="checkbox">
+                                            <label>
+                                   <input type="checkbox" name="<%=i.id%>" class="remove strikethrough" <%=checked%>>
                                    <span>
                                        <p>
                                     <%= i.topic%>
@@ -76,17 +79,17 @@
                                             <%}%>
                                 </p></span>
                                 </label>
+                                        </div>
+
+
                                 </div>
 
 
-                        </div>
-                        <div class="delete-button">
-                            <a href="/delete-todo/?id=<%=i._id%>">x</a>
-                        </div>
-
-                    </li>
-                    <%}%>
-            </ul>
+                            </li>
+                            <%}%>
+                    </ul>
+                </div>
+            </form>
         </div>
 
 

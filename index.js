@@ -36,6 +36,7 @@ app.get('/', function(req, res) {
 
 });
 
+
 // receiving data from the form
 app.post('/create-todo', function(req, res) {
 
@@ -43,7 +44,7 @@ app.post('/create-todo', function(req, res) {
         topic: req.body.topic,
         date: req.body.date,
         category: req.body.category,
-        completed: true
+        completed: false
     }, function(err, newTodo) {
         if (err) {
             console.log('Error in creating new todo');
@@ -55,7 +56,22 @@ app.post('/create-todo', function(req, res) {
 });
 
 // in case of delete button is pressed
-app.get('/delete-todo', function(req, res) {
+app.post('/delete-todo', function(req, res) {
+    console.log(req.body);
+    Object.keys(req.body).forEach(function(key) {
+        Todo.findByIdAndDelete(key, function(err) {
+            if (err) {
+                console.log('Error in deleting an item from database', err);
+                return;
+            }
+            console.log('item is deleted');
+
+        });
+    });
+    return res.redirect('back');
+
+});
+app.get('/delete-item', function(req, res) {
     //get the id from the url
     let id = req.query.id;
 
