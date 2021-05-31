@@ -86,7 +86,7 @@ app.use(function(req, res) {
 });
 
 // make the app listen on the given port number
-app.listen(port, function(err) {
+app.listen(process.env.PORT||port, function(err) {
     if (err) {
         // if error occurs this message is printed
         console.log(`Error in running the server: ${err}`);
