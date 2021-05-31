@@ -2,8 +2,8 @@
 const mongoose = require('mongoose');
 
 // connect to the db
-mongoose.connect('mongodb://localhost/todo_list_db');
-
+// mongoose.connect('mongodb://localhost/todo_list_db');
+mongoose.connect(process.env.MONGODB_URI);
 // acquire the connection to check if it is successful
 const db = mongoose.connection;
 
@@ -11,6 +11,6 @@ const db = mongoose.connection;
 db.on('error', console.error.bind('error connecting to db'));
 
 // if connected successfully print this
-db.once('open', function() {
+db.once('open', function () {
     console.log("Successfully connected to the database");
 });
