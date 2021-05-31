@@ -12,7 +12,7 @@ const app = express();
 
 // used to parse json and urls
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:false}));
 // used to access static files. These files can only be accessed by using express.static
 app.use(express.static('assets'));
 

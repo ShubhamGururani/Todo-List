@@ -2,8 +2,8 @@
 const mongoose = require('mongoose');
 
 // connect to the db
-// mongoose.connect('mongodb://localhost/todo_list_db');
-mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect('mongodb://localhost/todo_list_db' ,{ useNewUrlParser: true,useUnifiedTopology:true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 // acquire the connection to check if it is successful
 const db = mongoose.connection;
 
