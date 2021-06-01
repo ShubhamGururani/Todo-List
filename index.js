@@ -1,7 +1,7 @@
 // require express to setup server
 const express = require('express');
 // give the port number 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 // require mongoose
 const db = require('./config/mongoose');
@@ -86,7 +86,7 @@ app.use(function(req, res) {
 });
 
 // make the app listen on the given port number
-app.listen(process.env.PORT||port, function(err) {
+app.listen(port, function(err) {
     if (err) {
         // if error occurs this message is printed
         console.log(`Error in running the server: ${err}`);
